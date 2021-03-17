@@ -261,13 +261,12 @@
          * Reverse the order of the list.
          */
         this.reverse = function() {
-            if(self.length() > 1) {
-                var mid = self.length() / 2;
-                var currentIndex = 0;
-                while(currentIndex < mid) {
-                    self.swapItemsAt(currentIndex, ((self.length() - 1) - currentIndex));
-                    currentIndex++;
-                }
+            var curr = _head;
+            while (curr.next !== null) {
+                var next = curr.next;
+                curr.next = next.next;
+                next.next = _head;
+                _head = next;
             }
         };
 
